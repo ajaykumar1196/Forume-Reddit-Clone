@@ -39,7 +39,7 @@ public class Post {
 
     private Instant createdDate;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne
     @JoinColumn(name = "subreddit_id", referencedColumnName = "id")
     private Subreddit subreddit;
 }
