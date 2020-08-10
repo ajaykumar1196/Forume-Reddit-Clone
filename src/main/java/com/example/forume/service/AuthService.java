@@ -86,4 +86,11 @@ public class AuthService {
         response.setUsername(loginRequest.getUsername());
         return response;
     }
+
+    @Transactional(readOnly = true)
+    public User getCurrentUser() {
+        User principal = (User) SecurityContextHolder.
+                getContext().getAuthentication().getPrincipal();
+        return userRepository.findByUsername(principal.getUsername());
+    }
 }
